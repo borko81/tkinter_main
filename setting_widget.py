@@ -16,6 +16,10 @@ def select(option):
     print(option)
 
 
+def return_presses(event):
+    print("return key pressed")
+
+
 choice = "Rock Paper Scissors".split()
 cycke = itertools.cycle(choice)
 
@@ -27,6 +31,8 @@ button = tk.Button(root)
 button.config(text="button")
 button.config(**paddy)
 button.config(command=lambda: select(next(cycke)))
+button.bind('<Return>', return_presses)
+button.focus()
 button.pack()
 
 root.mainloop()
